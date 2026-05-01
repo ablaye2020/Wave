@@ -2,31 +2,36 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-    <title>Boost TikTok - Services & Commandes</title>
-    <!-- Font Awesome 6 (gratuit, pour les icônes réseaux) -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes, viewport-fit=cover">
+    <title>✨ TIKBOOST ✨ | Boost TikTok Instantané</title>
+    <!-- Font Awesome 6 -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <!-- Google Fonts : Poppins pour un look moderne et élégant -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Google Fonts : Poppins + Outrun vibe -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            user-select: none; /* pour éviter la sélection intrusive, mais pas bloquant */
         }
 
         body {
             font-family: 'Poppins', sans-serif;
-            background: #0a0a1a;
-            color: #fff;
-            position: relative;
+            background: radial-gradient(circle at 10% 20%, #0f0c1f, #03010f);
+            color: #ffffff;
             min-height: 100vh;
             overflow-x: hidden;
+            position: relative;
         }
 
-        /* -------------------- ICÔNES DE FOND FLOTTANTES (TikTok, IG, FB) -------------------- */
-        .bg-social-icons {
+        /* ANIMATION TIKTOK GRAIN + GLITCH */
+        @keyframes tiktokPulse {
+            0% { text-shadow: 0 0 2px #25F4EE, 0 0 4px #FE2C55; }
+            100% { text-shadow: 0 0 8px #25F4EE, 0 0 12px #FE2C55; }
+        }
+
+        /* FOND D'ICÔNES FLOTTANTES AVEC EFFET 3D & NEON */
+        .bg-neon-socials {
             position: fixed;
             top: 0;
             left: 0;
@@ -37,611 +42,539 @@
             overflow: hidden;
         }
 
-        .bg-social-icons i {
+        .bg-neon-socials i {
             position: absolute;
-            font-size: 6rem;
-            opacity: 0.1;
-            color: rgba(255, 255, 255, 0.25);
-            transition: transform 0.3s ease, opacity 0.3s;
-            animation: floatIcon 18s infinite alternate ease-in-out;
+            font-size: 7rem;
+            opacity: 0.12;
+            filter: blur(1px);
+            animation: floatIcon 20s infinite alternate ease-in-out;
+            transition: all 0.5s;
         }
 
-        /* positions personnalisées et tailles variables */
-        .bg-social-icons .fa-tiktok { top: 12%; left: 5%; font-size: 10rem; animation-duration: 22s; opacity: 0.12; }
-        .bg-social-icons .fa-instagram { bottom: 15%; right: 3%; font-size: 12rem; animation-duration: 25s; opacity: 0.1; }
-        .bg-social-icons .fa-facebook { top: 40%; right: 8%; font-size: 9rem; animation-duration: 20s; opacity: 0.1; }
-        .bg-social-icons .fa-tiktok-second { bottom: 20%; left: 10%; font-size: 7rem; animation-duration: 28s; opacity: 0.08; }
-        .bg-social-icons .fa-instagram-second { top: 70%; left: 15%; font-size: 8rem; animation-duration: 24s; opacity: 0.09; }
-        .bg-social-icons .fa-facebook-second { top: 15%; right: 20%; font-size: 11rem; animation-duration: 30s; opacity: 0.07; }
+        .bg-neon-socials .fa-tiktok { color: #25F4EE; top: 8%; left: 2%; font-size: 12rem; opacity: 0.1; animation-duration: 26s; }
+        .bg-neon-socials .fa-instagram { color: #E4405F; bottom: 10%; right: 3%; font-size: 14rem; opacity: 0.08; animation-duration: 29s; }
+        .bg-neon-socials .fa-facebook { color: #1877F2; top: 45%; left: 85%; font-size: 10rem; opacity: 0.1; animation-duration: 22s; }
+        .bg-neon-socials .fa-tiktok.second { bottom: 15%; left: 10%; font-size: 9rem; opacity: 0.09; animation-duration: 31s; }
+        .bg-neon-socials .fa-instagram.second { top: 70%; left: 15%; font-size: 11rem; opacity: 0.07; animation-duration: 24s; }
+        .bg-neon-socials .fa-facebook.second { top: 20%; right: 20%; font-size: 13rem; opacity: 0.06; animation-duration: 27s; }
+        .bg-neon-socials .fa-tiktok.third { top: 85%; right: 12%; font-size: 8rem; opacity: 0.1; animation-duration: 35s; }
 
         @keyframes floatIcon {
-            0% { transform: translateY(0px) rotate(0deg); }
-            100% { transform: translateY(-30px) rotate(5deg); }
+            0% { transform: translateY(0px) rotate(0deg) scale(1); }
+            100% { transform: translateY(-40px) rotate(8deg) scale(1.02); }
         }
 
-        /* conteneur principal (au-dessus du fond) */
         .main-container {
             position: relative;
-            z-index: 2;
+            z-index: 10;
             max-width: 1300px;
             margin: 0 auto;
-            padding: 2rem 1.5rem 4rem;
+            padding: 1.5rem 1.2rem 3rem;
         }
 
-        /* Header et branding */
-        .header {
+        /* header GLITCH TIKTOK */
+        .glitch-title {
             text-align: center;
-            margin-bottom: 3rem;
+            margin-bottom: 2rem;
         }
-
-        .header h1 {
-            font-size: 2.8rem;
-            font-weight: 800;
-            background: linear-gradient(135deg, #FE2C55, #25F4EE);
+        .glitch-title h1 {
+            font-size: 3.5rem;
+            font-weight: 900;
+            background: linear-gradient(135deg, #FE2C55, #25F4EE, #FFFFFF);
+            background-size: 200% auto;
             -webkit-background-clip: text;
             background-clip: text;
             color: transparent;
-            letter-spacing: -0.5px;
-            text-shadow: 0 2px 5px rgba(0,0,0,0.2);
+            animation: shine 4s linear infinite, tiktokPulse 1.8s ease-in-out infinite alternate;
+            letter-spacing: -1px;
         }
-
-        .header p {
+        @keyframes shine {
+            0% { background-position: 0% center; }
+            100% { background-position: 200% center; }
+        }
+        .glitch-title p {
             font-size: 1.1rem;
-            color: #cfcfec;
-            margin-top: 0.5rem;
-            font-weight: 400;
-        }
-
-        .wave-badge {
-            background: rgba(0, 164, 136, 0.2);
-            backdrop-filter: blur(8px);
-            border-radius: 60px;
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-            padding: 8px 20px;
-            margin-top: 1rem;
-            border: 1px solid rgba(0, 223, 185, 0.4);
             font-weight: 500;
+            background: rgba(0,0,0,0.5);
+            backdrop-filter: blur(4px);
+            display: inline-block;
+            padding: 0.3rem 1.5rem;
+            border-radius: 60px;
+            margin-top: 12px;
+            border: 1px solid rgba(37,244,238,0.5);
         }
 
-        .wave-badge i {
-            font-size: 1.3rem;
-            color: #00DFB9;
-        }
-
-        /* Grille des packs */
+        /* PACKS GRID avec effet néon */
         .pack-grid {
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
             gap: 1.8rem;
-            margin: 3rem 0 3rem;
+            margin: 3rem 0 2rem;
         }
-
         .pack-card {
-            background: rgba(15, 15, 35, 0.7);
+            background: rgba(12, 10, 30, 0.65);
             backdrop-filter: blur(12px);
             border-radius: 2rem;
-            padding: 1.8rem 1.5rem;
+            padding: 1.7rem 1.5rem;
             width: 260px;
             text-align: center;
-            transition: all 0.3s ease;
-            border: 1px solid rgba(255, 255, 255, 0.15);
-            box-shadow: 0 20px 35px -12px rgba(0,0,0,0.4);
+            transition: all 0.3s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+            border: 1px solid rgba(255,255,255,0.2);
+            box-shadow: 0 20px 35px -10px rgba(0,0,0,0.6);
             cursor: pointer;
         }
-
         .pack-card:hover {
-            transform: translateY(-8px);
+            transform: translateY(-12px) scale(1.02);
             border-color: #FE2C55;
-            background: rgba(30, 20, 45, 0.8);
-            box-shadow: 0 25px 40px -12px #FE2C5533;
+            box-shadow: 0 0 18px rgba(254,44,85,0.5), 0 20px 30px -8px black;
         }
-
         .pack-price {
-            font-size: 2rem;
+            font-size: 2.2rem;
             font-weight: 800;
-            background: linear-gradient(145deg, #FFD166, #FF8C42);
+            background: linear-gradient(145deg, #FFD966, #FF884D);
             -webkit-background-clip: text;
             background-clip: text;
             color: transparent;
-            margin-bottom: 0.25rem;
         }
-
-        .pack-price small {
-            font-size: 0.9rem;
-            font-weight: 500;
-            color: #bbb;
-        }
-
         .pack-details {
-            font-size: 1.3rem;
-            font-weight: 600;
-            margin: 0.8rem 0;
-            line-height: 1.4;
+            font-weight: 700;
+            margin: 1rem 0;
+            font-size: 1.2rem;
         }
-
         .pack-details span {
-            display: block;
-            font-size: 0.9rem;
+            font-size: 0.85rem;
             font-weight: 400;
-            color: #cfcfef;
+            opacity: 0.8;
+            display: block;
         }
-
         .btn-select {
             background: linear-gradient(95deg, #FE2C55, #F25F5C);
             border: none;
-            color: white;
-            font-weight: 600;
+            font-weight: bold;
             padding: 10px 0;
             width: 100%;
             border-radius: 50px;
-            margin-top: 1rem;
-            font-size: 1rem;
+            font-family: 'Poppins',sans-serif;
             cursor: pointer;
             transition: 0.2s;
-            font-family: 'Poppins', sans-serif;
+            color: white;
+            font-size: 1rem;
         }
+        .btn-select:active { transform: scale(0.96); }
 
-        .btn-select:hover {
-            background: linear-gradient(95deg, #ff416d, #fe6b68);
-            transform: scale(0.97);
-        }
-
-        /* Zone de commande / formulaire */
-        .order-section {
-            background: rgba(10, 10, 30, 0.65);
+        /* SECTION COMMANDE MODERNE */
+        .order-card {
+            background: rgba(8, 6, 24, 0.75);
             backdrop-filter: blur(16px);
             border-radius: 2rem;
             padding: 2rem;
-            margin-top: 1rem;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            box-shadow: 0 20px 35px -10px black;
+            margin: 2rem 0 1rem;
+            border: 1px solid rgba(37,244,238,0.3);
+            box-shadow: 0 20px 35px -12px black;
         }
-
         .order-title {
             font-size: 1.8rem;
-            font-weight: 600;
-            margin-bottom: 1.2rem;
-            border-left: 5px solid #25F4EE;
+            font-weight: 700;
+            border-left: 6px solid #25F4EE;
             padding-left: 1rem;
+            margin-bottom: 1.5rem;
         }
-
         .form-row {
             display: flex;
             flex-wrap: wrap;
             gap: 1.5rem;
             margin-bottom: 1.5rem;
         }
-
         .input-group {
             flex: 1;
             min-width: 200px;
         }
-
         .input-group label {
-            display: block;
-            font-size: 0.85rem;
+            font-size: 0.75rem;
             text-transform: uppercase;
             letter-spacing: 1px;
-            font-weight: 500;
-            margin-bottom: 0.5rem;
-            color: #b2b2e6;
+            font-weight: 600;
+            color: #b1b1ff;
         }
-
         .input-group input, .input-group textarea {
             width: 100%;
-            background: rgba(0, 0, 0, 0.5);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            border-radius: 1.2rem;
+            background: rgba(0,0,0,0.5);
+            border: 1px solid rgba(255,255,255,0.25);
+            border-radius: 1.5rem;
             padding: 12px 20px;
             color: white;
-            font-size: 0.95rem;
-            font-family: 'Poppins', sans-serif;
+            font-family: 'Poppins',sans-serif;
             outline: none;
             transition: 0.2s;
         }
-
         .input-group input:focus, .input-group textarea:focus {
             border-color: #25F4EE;
-            box-shadow: 0 0 5px #25F4EE80;
+            box-shadow: 0 0 8px #25F4EE;
         }
-
-        .selected-pack-info {
-            background: rgba(254, 44, 85, 0.2);
-            border-radius: 1rem;
-            padding: 0.8rem 1.2rem;
-            margin-bottom: 1.5rem;
+        .selected-badge {
+            background: rgba(254,44,85,0.25);
+            padding: 8px 18px;
+            border-radius: 40px;
             display: inline-block;
-            font-weight: 500;
+            margin-bottom: 1.2rem;
+            font-weight: 600;
         }
-
-        .wave-payment {
-            background: linear-gradient(145deg, #0F2B2A, #05201F);
+        .wave-panel {
+            background: linear-gradient(105deg, #0b2a27, #06211f);
             border-radius: 1.5rem;
-            padding: 1rem 1.8rem;
+            padding: 1rem 1.5rem;
             display: flex;
-            align-items: center;
             flex-wrap: wrap;
+            align-items: center;
             justify-content: space-between;
-            gap: 1rem;
-            margin: 1.5rem 0;
+            margin: 1.3rem 0;
+            gap: 12px;
         }
-
-        .wave-number {
+        .wave-number-highlight {
             font-family: monospace;
             font-size: 1.5rem;
             font-weight: 800;
-            letter-spacing: 2px;
-            background: #00000055;
-            padding: 5px 12px;
-            border-radius: 40px;
-        }
-
-        .btn-submit {
-            background: #00dfb9;
-            border: none;
-            padding: 14px 35px;
-            font-weight: 700;
-            font-size: 1.2rem;
+            background: #00000070;
+            padding: 5px 15px;
             border-radius: 50px;
+            letter-spacing: 1px;
+        }
+        .double-action {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-top: 1.2rem;
+        }
+        .btn-wave-action {
+            flex: 1;
+            background: #00BBA6;
+            border: none;
+            padding: 14px 0;
+            border-radius: 60px;
+            font-weight: bold;
+            font-size: 1.1rem;
             color: #0a0a1a;
             cursor: pointer;
             transition: 0.2s;
-            font-family: inherit;
-            width: 100%;
-            max-width: 320px;
-            margin-top: 10px;
-            box-shadow: 0 8px 20px rgba(0,223,185,0.3);
+            font-family: 'Poppins',sans-serif;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
         }
-
-        .btn-submit:hover {
-            background: #00ffe0;
-            transform: translateY(-2px);
-        }
-
-        .note {
-            font-size: 0.8rem;
-            margin-top: 1rem;
-            text-align: center;
-            color: #bbbbef;
-        }
-
-        /* Message flottant type toast */
-        .toast-msg {
-            position: fixed;
-            bottom: 30px;
-            right: 20px;
-            background: #1f1f3a;
-            backdrop-filter: blur(12px);
-            padding: 12px 24px;
-            border-radius: 50px;
-            border-left: 5px solid #00dfb9;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
-            font-weight: 500;
-            z-index: 999;
-            transition: 0.2s;
+        .btn-whatsapp-action {
+            flex: 1;
+            background: #25D366;
+            border: none;
+            padding: 14px 0;
+            border-radius: 60px;
+            font-weight: bold;
+            font-size: 1.1rem;
             color: white;
+            cursor: pointer;
+            transition: 0.2s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
         }
-
+        .btn-wave-action:hover, .btn-whatsapp-action:hover {
+            transform: translateY(-3px);
+            filter: brightness(1.05);
+        }
+        .note-sm {
+            font-size: 0.7rem;
+            text-align: center;
+            margin-top: 1rem;
+            opacity: 0.7;
+        }
         footer {
             text-align: center;
             margin-top: 3rem;
             font-size: 0.8rem;
-            opacity: 0.7;
+            opacity: 0.6;
         }
-
-        @media (max-width: 700px) {
+        @media (max-width: 680px) {
+            .glitch-title h1 { font-size: 2.5rem; }
             .pack-card { width: 100%; max-width: 280px; }
-            .header h1 { font-size: 2rem; }
-            .order-title { font-size: 1.4rem; }
+            .double-action { flex-direction: column; }
         }
-
-        .fa-w, .fa-wave {  /* style personnalisé pour wave mais pas obligatoire */
+        /* effet like TikTok sur clic */
+        .like-pop {
+            position: fixed;
+            pointer-events: none;
+            font-size: 2rem;
+            animation: likeAnim 0.8s ease-out forwards;
+            z-index: 9999;
+        }
+        @keyframes likeAnim {
+            0% { transform: scale(0.3); opacity: 1; }
+            100% { transform: scale(1.8) translateY(-40px); opacity: 0; }
         }
     </style>
 </head>
 <body>
 
-<!-- FOND avec icônes TikTok, Instagram, Facebook (décor très joli et animé) -->
-<div class="bg-social-icons">
+<div class="bg-neon-socials">
     <i class="fab fa-tiktok"></i>
     <i class="fab fa-instagram"></i>
     <i class="fab fa-facebook"></i>
-    <i class="fab fa-tiktok fa-tiktok-second"></i>
-    <i class="fab fa-instagram instagram-second"></i>
-    <i class="fab fa-facebook facebook-second"></i>
-    <!-- ajout d'icones supplémentaires pour plus de richesse -->
-    <i class="fab fa-tiktok" style="top: 70%; left: 85%; font-size: 9rem; opacity: 0.08; animation-duration: 26s;"></i>
-    <i class="fab fa-instagram" style="top: 85%; left: 45%; font-size: 6rem; opacity: 0.09; animation-duration: 19s;"></i>
+    <i class="fab fa-tiktok second"></i>
+    <i class="fab fa-instagram second"></i>
+    <i class="fab fa-facebook second"></i>
+    <i class="fab fa-tiktok third"></i>
 </div>
 
 <div class="main-container">
-    <div class="header">
+    <div class="glitch-title">
         <h1><i class="fab fa-tiktok"></i> TIKBOOST <i class="fab fa-tiktok"></i></h1>
-        <p>Faites décoller votre compte TikTok avec nos packs boostés 🔥</p>
-        <div class="wave-badge">
-            <i class="fas fa-money-bill-wave"></i> Paiement 100% sécurisé via <strong>Wave</strong> 
-            <i class="fas fa-mobile-alt"></i> +225 07 97 19 32 25
-        </div>
+        <p>⚡ FAIS DÉCOLLER TON COMPTE ⚡</p>
     </div>
 
-    <!-- Grille de packs -->
+    <!-- PACKS OFFICIELS -->
     <div class="pack-grid">
-        <!-- Pack 1000 FCFA -->
-        <div class="pack-card" data-price="1000" data-desc="500 followers">
-            <div class="pack-price">1000 <small>FCFA</small></div>
-            <div class="pack-details">🚀 +500 <strong>Followers</strong> <span>Livraison rapide</span></div>
-            <button class="btn-select">Choisir ce pack →</button>
+        <div class="pack-card" data-price="1000" data-detail="500 followers">
+            <div class="pack-price">1000 FCFA</div>
+            <div class="pack-details">🔥 +500 <strong>Followers</strong><span>100% réels</span></div>
+            <button class="btn-select"><i class="fas fa-cart-plus"></i> Choisir</button>
         </div>
-        <!-- Pack 1500 FCFA -->
-        <div class="pack-card" data-price="1500" data-desc="800 followers">
-            <div class="pack-price">1500 <small>FCFA</small></div>
-            <div class="pack-details">⭐ +800 <strong>Followers</strong> <span>Engagement garanti</span></div>
-            <button class="btn-select">Choisir ce pack →</button>
+        <div class="pack-card" data-price="1500" data-detail="800 followers">
+            <div class="pack-price">1500 FCFA</div>
+            <div class="pack-details">⭐ +800 <strong>Followers</strong><span>Croissance rapide</span></div>
+            <button class="btn-select"><i class="fas fa-cart-plus"></i> Choisir</button>
         </div>
-        <!-- Pack 2000 FCFA -->
-        <div class="pack-card" data-price="2000" data-desc="1000 followers + 100 likes">
-            <div class="pack-price">2000 <small>FCFA</small></div>
-            <div class="pack-details">💥 +1000 <strong>Followers</strong><span> +100 Likes</span></div>
-            <button class="btn-select">Choisir ce pack →</button>
+        <div class="pack-card" data-price="2000" data-detail="1000 followers + 100 likes">
+            <div class="pack-price">2000 FCFA</div>
+            <div class="pack-details">💎 +1000 <strong>Followers</strong><span>+100 Likes</span></div>
+            <button class="btn-select"><i class="fas fa-cart-plus"></i> Choisir</button>
         </div>
-        <!-- Pack 2500 FCFA -->
-        <div class="pack-card" data-price="2500" data-desc="1250 followers + 100 likes +20 commentaires">
-            <div class="pack-price">2500 <small>FCFA</small></div>
-            <div class="pack-details">🏆 +1250 <strong>Followers</strong><span> +100 Likes +20 Commentaires</span></div>
-            <button class="btn-select">Choisir ce pack →</button>
+        <div class="pack-card" data-price="2500" data-detail="1250 followers + 100 likes + 20 commentaires">
+            <div class="pack-price">2500 FCFA</div>
+            <div class="pack-details">🏆 +1250 <strong>Followers</strong><span>+100 Likes +20 Comms</span></div>
+            <button class="btn-select"><i class="fas fa-cart-plus"></i> Choisir</button>
         </div>
-        <!-- pack supplémentaire 3000 FCFA pour exemple "ainsi de suite" avec encore plus -->
-        <div class="pack-card" data-price="3000" data-desc="1500 followers + 200 likes + 40 commentaires">
-            <div class="pack-price">3000 <small>FCFA</small></div>
-            <div class="pack-details">👑 +1500 <strong>Followers</strong><span> +200 Likes +40 Commentaires</span></div>
-            <button class="btn-select">Choisir ce pack →</button>
+        <div class="pack-card" data-price="3000" data-detail="1500 followers + 200 likes + 40 commentaires">
+            <div class="pack-price">3000 FCFA</div>
+            <div class="pack-details">👑 +1500 <strong>Followers</strong><span>+200 Likes +40 Comms</span></div>
+            <button class="btn-select"><i class="fas fa-cart-plus"></i> Choisir</button>
         </div>
     </div>
 
-    <!-- Section commande -->
-    <div class="order-section">
-        <div class="order-title">📝 Finalisez votre commande</div>
-        <div id="selectedDisplay" class="selected-pack-info">Aucun pack sélectionné</div>
+    <!-- ZONE COMMANDE + ACTIONS WAVE / WHATSAPP -->
+    <div class="order-card">
+        <div class="order-title"><i class="fas fa-bolt"></i> Finalise ta commande</div>
+        <div id="selectedPackDisplay" class="selected-badge"><i class="far fa-clock"></i> Aucun pack sélectionné</div>
 
-        <form id="orderForm">
+        <form id="orderMainForm">
             <div class="form-row">
                 <div class="input-group">
-                    <label><i class="fas fa-user"></i> Pseudo TikTok</label>
-                    <input type="text" id="tiktokPseudo" placeholder="@votrecompte ou lien" required>
+                    <label><i class="fab fa-tiktok"></i> Pseudo TikTok (obligatoire)</label>
+                    <input type="text" id="tiktokUser" placeholder="@ tonpseudo ou lien" required>
                 </div>
+                <div class="input-group">
+                    <label><i class="fas fa-phone-alt"></i> Ton numéro Wave (réception)</label>
+                    <input type="tel" id="wavePhoneClient" placeholder="+225 XX XXX XX XX" required>
+                </div>
+            </div>
+            <div class="form-row">
                 <div class="input-group">
                     <label><i class="fas fa-envelope"></i> Email (optionnel)</label>
-                    <input type="email" id="email" placeholder="votre@email.com">
-                </div>
-            </div>
-            <div class="form-row">
-                <div class="input-group">
-                    <label><i class="fas fa-phone-alt"></i> Votre numéro Wave (réception)</label>
-                    <input type="tel" id="clientPhone" placeholder="Ex: +225 07XXXXXXXX" required>
+                    <input type="email" id="clientEmail" placeholder="exemple@mail.com">
                 </div>
                 <div class="input-group">
-                    <label><i class="fas fa-sticky-note"></i> Instructions spéciales</label>
-                    <textarea rows="2" id="notes" placeholder="Ex: lien vidéo spécifique..."></textarea>
+                    <label><i class="fas fa-comment-dots"></i> Lien vidéo spécifique</label>
+                    <input type="text" id="videoLink" placeholder="Lien TikTok (optionnel)">
                 </div>
             </div>
 
-            <!-- Affichage du Wave officiel pour envoi argent -->
-            <div class="wave-payment">
-                <div><i class="fas fa-waveform"></i> <strong>Envoyez l'argent via Wave à :</strong></div>
-                <div class="wave-number">+225 07 97 19 32 25</div>
-                <div><small>✅ Après paiement, validez votre commande ci-dessous</small></div>
+            <!-- Bloc WAVE obligatoire + numéro vendeur -->
+            <div class="wave-panel">
+                <div><i class="fas fa-waveform"></i> <strong>💰 Envoie l'argent via Wave à :</strong></div>
+                <div class="wave-number-highlight"><i class="fas fa-mobile-alt"></i> +225 07 97 19 32 25</div>
             </div>
 
-            <button type="submit" class="btn-submit"><i class="fas fa-paper-plane"></i> Confirmer la commande et prévenir le vendeur</button>
-            <div class="note">📌 Après clic, nous recevons votre commande avec le montant exact du pack. Vous envoyez l’argent via Wave au numéro +2250797193225. Traitement sous 24h.</div>
+            <!-- DEUX BOUTONS MAGIQUES : Wave + WhatsApp Prérempli -->
+            <div class="double-action">
+                <button type="button" id="openWaveBtn" class="btn-wave-action"><i class="fas fa-money-bill-wave fa-fw"></i> Payer via Wave →</button>
+                <button type="button" id="notifyVendorWhatsApp" class="btn-whatsapp-action"><i class="fab fa-whatsapp"></i> Notifier le vendeur (WhatsApp)</button>
+            </div>
+            <div class="note-sm">📌 * Cliquez sur "Payer via Wave" pour ouvrir l'application Wave et effectuer le paiement. <br>
+            Après paiement, cliquez sur "Notifier le vendeur" pour confirmer la commande via WhatsApp avec message automatique (numéro +243 848 668 577).</div>
         </form>
     </div>
     <footer>
-        <i class="fab fa-tiktok"></i> <i class="fab fa-instagram"></i> <i class="fab fa-facebook"></i> | Boost TikTok service — Paiements sécurisés Wave
+        <i class="fab fa-tiktok"></i> <i class="fab fa-instagram"></i> <i class="fab fa-facebook"></i> • Paiement Wave Sécurisé • Support rapide
     </footer>
 </div>
 
 <script>
-    // Liste des packs (prix, description détaillée)
-    const packsData = {
-        1000: { desc: "500 followers", price: 1000, details: "500 followers" },
-        1500: { desc: "800 followers", price: 1500, details: "800 followers" },
-        2000: { desc: "1000 followers + 100 likes", price: 2000, details: "1000 followers + 100 likes" },
-        2500: { desc: "1250 followers + 100 likes + 20 commentaires", price: 2500, details: "1250 followers + 100 likes +20 commentaires" },
-        3000: { desc: "1500 followers + 200 likes + 40 commentaires", price: 3000, details: "1500 followers + 200 likes +40 commentaires" }
+    // ----------------------------- GESTION DES PACKS ---------------------------------
+    let selectedPack = {
+        price: null,
+        detail: null
     };
+    const displayDiv = document.getElementById('selectedPackDisplay');
 
-    let selectedPrice = null;
-    let selectedDescription = null;
-
-    // Fonction popup/message
-    function showToast(message, isError = false) {
-        const existingToast = document.querySelector('.toast-msg');
-        if(existingToast) existingToast.remove();
-        const toast = document.createElement('div');
-        toast.className = 'toast-msg';
-        toast.innerHTML = `<i class="fas ${isError ? 'fa-exclamation-triangle' : 'fa-check-circle'}"></i> ${message}`;
-        if(isError) toast.style.borderLeftColor = "#FE2C55";
-        document.body.appendChild(toast);
-        setTimeout(() => {
-            toast.style.opacity = '0';
-            setTimeout(() => toast.remove(), 400);
-        }, 4500);
-    }
-
-    // Sélection des packs
+    // Mapping des packs via les cartes
     const cards = document.querySelectorAll('.pack-card');
-    const selectedDisplay = document.getElementById('selectedDisplay');
-
     cards.forEach(card => {
         const btn = card.querySelector('.btn-select');
         btn.addEventListener('click', (e) => {
+            e.preventDefault();
             e.stopPropagation();
-            const priceAttr = card.getAttribute('data-price');
-            const price = parseInt(priceAttr);
-            const descRaw = card.getAttribute('data-desc');
-            let descFormatted = "";
-            if(price === 1000) descFormatted = "500 followers";
-            else if(price === 1500) descFormatted = "800 followers";
-            else if(price === 2000) descFormatted = "1000 followers + 100 likes";
-            else if(price === 2500) descFormatted = "1250 followers + 100 likes +20 commentaires";
-            else if(price === 3000) descFormatted = "1500 followers + 200 likes +40 commentaires";
-            else descFormatted = descRaw;
-            
-            selectedPrice = price;
-            selectedDescription = descFormatted;
-            selectedDisplay.innerHTML = `✅ Pack sélectionné : ${selectedPrice} FCFA — ${selectedDescription} <i class="fas fa-check-circle" style="color:#25F4EE"></i>`;
-            showToast(`Pack ${selectedPrice} FCFA sélectionné : ${selectedDescription}`, false);
+            const price = parseInt(card.getAttribute('data-price'));
+            let detail = card.getAttribute('data-detail');
+            // petite normalisation
+            if(price === 1000) detail = "500 followers";
+            else if(price === 1500) detail = "800 followers";
+            else if(price === 2000) detail = "1000 followers + 100 likes";
+            else if(price === 2500) detail = "1250 followers + 100 likes +20 commentaires";
+            else if(price === 3000) detail = "1500 followers + 200 likes +40 commentaires";
+            selectedPack.price = price;
+            selectedPack.detail = detail;
+            displayDiv.innerHTML = `✅ Pack actif : ${price} FCFA — ${detail} <i class="fas fa-check-circle" style="color:#25F4EE;"></i>`;
+            // petit effet visuel
+            showFloatingLike();
         });
     });
 
-    // Gestion du formulaire de commande + envoi des infos (simulation envoi et rappel du Wave)
-    const orderForm = document.getElementById('orderForm');
-    orderForm.addEventListener('submit', (e) => {
-        e.preventDefault();
-        
-        // Vérifications
-        if(!selectedPrice) {
-            showToast("❌ Veuillez d'abord choisir un pack de boost !", true);
-            return;
-        }
-        
-        const tiktokPseudo = document.getElementById('tiktokPseudo').value.trim();
-        const clientPhone = document.getElementById('clientPhone').value.trim();
-        if(!tiktokPseudo) {
-            showToast("Veuillez renseigner votre pseudo TikTok", true);
-            return;
-        }
-        if(!clientPhone) {
-            showToast("Veuillez indiquer votre numéro Wave pour la confirmation", true);
-            return;
-        }
-        
-        // Optionnels
-        const email = document.getElementById('email').value.trim();
-        const notes = document.getElementById('notes').value.trim();
-        
-        // Montant précis
-        const amount = selectedPrice;
-        const packDetail = selectedDescription;
-        
-        // Récupération date heure
-        const now = new Date();
-        const dateStr = now.toLocaleString('fr-FR');
-        
-        // Construction du message pour le vendeur: on envoie "l'argent via wave sur le numéro +2250797193225"
-        // mais le client doit envoyer l'argent. Ici le formulaire envoie une notification au proprio via alerte ou stockage
-        // Nous simulons l'envoi par WhatsApp ou email? Pour une démo professionnelle, on peut ouvrir une boite de dialogue
-        // qui rappelle toutes les infos + le numéro Wave à qui envoyer l'argent.
-        // Le site est statique, on va créer une confirmation détaillée avec demande d'envoyer l'argent via Wave.
-        
-        const confirmationMessage = `🟢 NOUVELLE COMMANDE BOOST TIKTOK 🟢
-        
-📦 Pack: ${amount} FCFA — ${packDetail}
-👤 Pseudo TikTok: ${tiktokPseudo}
-📱 Votre numéro Wave (client): ${clientPhone}
-📧 Email: ${email || "Non fourni"}
-📝 Note: ${notes || "Aucune"}
-🕒 Date: ${dateStr}
+    function showFloatingLike() {
+        const likeSpan = document.createElement('div');
+        likeSpan.className = 'like-pop';
+        likeSpan.innerHTML = '❤️🔥';
+        likeSpan.style.left = Math.random() * (window.innerWidth - 80) + 40 + 'px';
+        likeSpan.style.top = '70%';
+        document.body.appendChild(likeSpan);
+        setTimeout(() => likeSpan.remove(), 800);
+    }
 
-💰 INSTRUCTIONS DE PAIEMENT:
-➡️ Envoyez EXACTEMENT ${amount} FCFA via Wave Money au numéro:
-👉 +225 07 97 19 32 25 (compte vendeur)
-⚠️ Après envoi, répondez à ce message avec la capture ou la reference.
-🚀 Le service sera lancé dès réception du paiement.
+    // fonction utilitaire pour afficher messages
+    function toastMessage(msg, isError = false) {
+        let toast = document.querySelector('.dynamic-toast');
+        if(toast) toast.remove();
+        toast = document.createElement('div');
+        toast.className = 'dynamic-toast';
+        toast.style.position = 'fixed';
+        toast.style.bottom = '25px';
+        toast.style.right = '20px';
+        toast.style.background = isError ? '#bb2e4e' : '#1f2a3e';
+        toast.style.backdropFilter = 'blur(12px)';
+        toast.style.padding = '12px 24px';
+        toast.style.borderRadius = '50px';
+        toast.style.borderLeft = `5px solid ${isError ? '#FE2C55' : '#25F4EE'}`;
+        toast.style.zIndex = '9999';
+        toast.style.fontWeight = '500';
+        toast.style.boxShadow = '0 4px 15px black';
+        toast.innerHTML = `<i class="fas ${isError ? 'fa-exclamation-triangle' : 'fa-bell'}"></i> ${msg}`;
+        document.body.appendChild(toast);
+        setTimeout(() => toast.remove(), 4000);
+    }
 
-❤️ Merci de faire confiance à TikBoost !`;
-        
-        // Créer une modale ou un popup d'infos + ouverture WhatsApp si possible
-        // On prépare un texte pour le propriétaire du site: les infos sont aussi envoyées via l'interface, simulant l'envoi.
-        // Ici nous proposons deux actions: 1) Afficher un récapitulatif dédié avec un bouton de copie.
-        // 2) Option pour envoyer un message au support (ou au client) mais le plus important: l'admin reçoit les détails.
-        
-        // On simule l'envoi au "vendeur" par un popup et on peut également notifier l'utilisateur de procéder au Wave.
-        // On va créer un overlay moderne condensé
-        const modalDiv = document.createElement('div');
-        modalDiv.style.position = 'fixed';
-        modalDiv.style.top = '0';
-        modalDiv.style.left = '0';
-        modalDiv.style.width = '100%';
-        modalDiv.style.height = '100%';
-        modalDiv.style.backgroundColor = 'rgba(0,0,0,0.85)';
-        modalDiv.style.backdropFilter = 'blur(8px)';
-        modalDiv.style.zIndex = '1000';
-        modalDiv.style.display = 'flex';
-        modalDiv.style.alignItems = 'center';
-        modalDiv.style.justifyContent = 'center';
-        modalDiv.style.fontFamily = "'Poppins', sans-serif";
-        
-        const modalContent = document.createElement('div');
-        modalContent.style.backgroundColor = '#111128';
-        modalContent.style.borderRadius = '2rem';
-        modalContent.style.maxWidth = '550px';
-        modalContent.style.width = '90%';
-        modalContent.style.padding = '2rem';
-        modalContent.style.border = '1px solid #FE2C55';
-        modalContent.style.boxShadow = '0 20px 40px rgba(0,0,0,0.5)';
-        modalContent.style.color = 'white';
-        
-        modalContent.innerHTML = `
-            <div style="display: flex; justify-content: space-between; align-items:center; border-bottom: 1px solid #2c2c54; padding-bottom: 12px; margin-bottom: 20px;">
-                <h2 style="margin:0;"><i class="fab fa-tiktok"></i> Confirmation</h2>
-                <button id="closeModalBtn" style="background: none; border: none; font-size: 28px; color:white; cursor:pointer;">&times;</button>
-            </div>
-            <div style="background: #0e0e28; padding: 15px; border-radius: 1.2rem; margin-bottom: 20px;">
-                <p><strong>✅ Commande enregistrée pour le vendeur.</strong></p>
-                <p>📌 Pack: <strong>${amount} FCFA</strong> — ${packDetail}</p>
-                <p>🎯 Compte TikTok: ${tiktokPseudo}</p>
-                <p>📞 Votre contact Wave: ${clientPhone}</p>
-            </div>
-            <div style="background: #002b2a; border-radius: 1.2rem; padding: 1rem; margin: 1rem 0;">
-                <i class="fas fa-money-bill-wave"></i> <strong style="color:#00dfb9;">TRANSFERT WAVE OBLIGATOIRE</strong><br>
-                Envoyez <strong style="font-size:1.4rem;">${amount} FCFA</strong> via Wave Money au numéro:<br>
-                <span style="font-size: 1.5rem; font-weight:bold; letter-spacing:1px;">+225 07 97 19 32 25</span><br>
-                <small>Référence: votre pseudo TikTok + montant</small>
-            </div>
-            <p style="font-size:0.85rem;">Après avoir envoyé l'argent, notre équipe vérifiera et activera votre boost dans les heures suivantes.<br>
-            <strong>Le vendeur a été notifié de votre commande (détails sauvegardés localement).</strong></p>
-            <button id="copyInfosBtn" style="background:#2c2c5e; border: none; padding: 10px; border-radius: 40px; color:white; margin-top: 15px; width:100%; cursor:pointer;"><i class="far fa-copy"></i> Copier les infos de paiement</button>
-        `;
-        
-        modalDiv.appendChild(modalContent);
-        document.body.appendChild(modalDiv);
-        
-        // Gestion fermeture
-        const closeBtn = modalContent.querySelector('#closeModalBtn');
-        closeBtn.addEventListener('click', () => modalDiv.remove());
-        // Copier les coordonnées Wave
-        const copyBtn = modalContent.querySelector('#copyInfosBtn');
-        copyBtn.addEventListener('click', () => {
-            const textToCopy = `Pack: ${amount} FCFA - ${packDetail}\nNuméro Wave pour paiement: +225 07 97 19 32 25\nMontant: ${amount} FCFA\nPseudo TikTok: ${tiktokPseudo}`;
-            navigator.clipboard.writeText(textToCopy).then(() => {
-                showToast("📋 Infos de paiement copiées !", false);
-            }).catch(() => alert("Copie manuelle"));
-        });
-        
-        // Simuler l'envoi au vendeur (affichage console + stockage)
-        console.log("--- INFOS COMMANDE POUR VENDEUR ---");
-        console.log(confirmationMessage);
-        // On peut aussi stocker dans localStorage ou session (facultatif)
-        const ordersHistory = JSON.parse(localStorage.getItem('tikboost_orders') || '[]');
-        ordersHistory.push({ amount, packDetail, tiktokPseudo, clientPhone, email, notes, date: dateStr });
-        localStorage.setItem('tikboost_orders', JSON.stringify(ordersHistory));
-        
-        // Réinitialisation non obligatoire du pack sélectionné, mais on peut laisser l'utilisateur finaliser
-        // On ne reset pas la sélection pour permettre plusieurs commandes mais pas nécessaire.
-        // Optionnel reset sélection pour éviter double commande incidente ? non.
-        
-        // Réponse user: a déjà la modale.
+    // ------------------------ BOUTON WAVE : rediriger vers l'application Wave (deep link) --------------------
+    document.getElementById('openWaveBtn').addEventListener('click', () => {
+        // Vérifier qu'un pack est sélectionné
+        if(!selectedPack.price) {
+            toastMessage("❌ Sélectionne un pack avant de payer !", true);
+            return;
+        }
+        const pseudo = document.getElementById('tiktokUser').value.trim();
+        if(!pseudo) {
+            toastMessage("Indique ton pseudo TikTok avant de continuer", true);
+            return;
+        }
+        // Redirection vers Wave: lien universel +2250797193225 
+        // Scheme wave : "wave://" ou "https://wave.com/send" mais le plus fiable c'est wave://send?number=...
+        // On utilise wave:// pour ouvrir l'app directement. Sinon lien market.
+        const waveNumber = "2250797193225"; // sans le + pour certains liens
+        const waveDeepLink = `wave://send?number=${waveNumber}&amount=${selectedPack.price}`;
+        // Fallback store si wave n'est pas installé
+        const waveDownload = "https://wave.com/fr/download";
+        window.location.href = waveDeepLink;
+        setTimeout(() => {
+            // si l'app n'est pas installée, proposer téléchargement
+            toastMessage("Si Wave ne s'ouvre pas, télécharge l'application puis envoie "+selectedPack.price+" FCFA au +225 07 97 19 32 25", false);
+        }, 800);
     });
-    
-    // INIT petit effet
+
+    // ------------------------ BOUTON WHATSAPP : NOTIFIER LE VENDEUR avec MESSAGE PRÉ-REMPLI +243 848 668 577-----------------
+    document.getElementById('notifyVendorWhatsApp').addEventListener('click', () => {
+        if(!selectedPack.price) {
+            toastMessage("Veuillez d'abord choisir un pack TikTok !", true);
+            return;
+        }
+        const pseudoTikTok = document.getElementById('tiktokUser').value.trim();
+        const clientWave = document.getElementById('wavePhoneClient').value.trim();
+        const clientEmail = document.getElementById('clientEmail').value.trim();
+        const videoLink = document.getElementById('videoLink').value.trim();
+        
+        if(!pseudoTikTok) {
+            toastMessage("Remplis ton pseudo TikTok avant d'envoyer la notif au vendeur", true);
+            return;
+        }
+        if(!clientWave) {
+            toastMessage("Donne ton numéro Wave pour recevoir la confirmation", true);
+            return;
+        }
+
+        // Construction du message pré-rempli pour le vendeur (WhatsApp +243 848 668 577)
+        const message = `🟢 *NOUVELLE COMMANDE TIKBOOST* 🟢%0A%0A📦 Pack: ${selectedPack.price} FCFA — ${selectedPack.detail}%0A👤 Pseudo TikTok: ${pseudoTikTok}%0A📱 Numéro Wave client: ${clientWave}%0A📧 Email: ${clientEmail || "Non fourni"}%0A🔗 Lien vidéo: ${videoLink || "Aucun"}%0A%0A💸 Paiement à vérifier sur Wave: +225 07 97 19 32 25%0A✅ Dès réception du paiement, lancer le boost !%0A🙏 Merci d'utiliser TikBoost.`;
+        
+        // Numéro whatsapp vendeur : +243 848 668 577 (sans le +)
+        const vendorPhone = "243848668577";
+        const whatsappUrl = `https://wa.me/${vendorPhone}?text=${message}`;
+        
+        // Ouvrir WhatsApp avec message pré-rempli
+        window.open(whatsappUrl, '_blank');
+        
+        // Aussi envoyer une sauvegarde locale pour le vendeur (simulation)
+        const commandeData = {
+            pack: selectedPack.price,
+            detail: selectedPack.detail,
+            pseudo: pseudoTikTok,
+            phoneWave: clientWave,
+            email: clientEmail,
+            video: videoLink,
+            date: new Date().toLocaleString()
+        };
+        let historique = JSON.parse(localStorage.getItem('tikboost_ventes') || '[]');
+        historique.push(commandeData);
+        localStorage.setItem('tikboost_ventes', JSON.stringify(historique));
+        
+        toastMessage("✅ Demande envoyée au vendeur via WhatsApp ! Terminez le paiement Wave.", false);
+        // Petit effet bonus
+        showFloatingLike();
+        
+        // Optionnel: possible de réinitialiser le formulaire ou pas
+    });
+
+    // Ajouter effet de décoration supplémentaire sur clic partout
+    document.querySelectorAll('.pack-card, .btn-wave-action, .btn-whatsapp-action').forEach(el => {
+        el.addEventListener('click', (e) => {
+            let ripple = document.createElement('span');
+            ripple.style.position = 'absolute';
+            ripple.style.background = 'radial-gradient(circle, #FE2C55, transparent)';
+            ripple.style.borderRadius = '50%';
+            ripple.style.width = '100px';
+            ripple.style.height = '100px';
+            ripple.style.left = e.clientX - 50 + 'px';
+            ripple.style.top = e.clientY - 50 + 'px';
+            ripple.style.pointerEvents = 'none';
+            ripple.style.opacity = '0.5';
+            ripple.style.transform = 'scale(0)';
+            ripple.style.transition = 'transform 0.5s, opacity 0.6s';
+            ripple.style.zIndex = '999';
+            document.body.appendChild(ripple);
+            setTimeout(() => { ripple.style.transform = 'scale(2)'; ripple.style.opacity = '0'; }, 10);
+            setTimeout(() => ripple.remove(), 500);
+        });
+    });
+
+    // Message de bienvenue
     window.addEventListener('load', () => {
-        showToast("✨ Bienvenue sur TikBoost ! Choisissez votre pack ✨");
+        setTimeout(() => toastMessage("✨ Choisis ton pack → Paiement Wave → WhatsApp vendeur ✨", false), 800);
     });
 </script>
 </body>
 </html>
+joy
